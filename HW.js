@@ -38,6 +38,29 @@ for (let i = 1; i <= 20; ++i) {
 
     const shouldGoToWork = key && documents && pen && (apple || orange);
 
-    console.log(shouldGoToWork);
+    console.log(shouldGoToWork);// Мы можем идти на работу :(
 
+    //5-task
+    let yourNumber = prompt("введите Целое число: "); // просим ввести число
 
+    let number = parseInt(yourNumber); //конвертируем значение в число для проверочек
+
+    // хотелось бы проверку на целое число и на пустое поле тоже :D
+    
+    if (!isNaN (number) && yourNumber.trim() !== "") {
+
+        if (number%3 == 0 && number%5 ==0){ 
+            alert ("FizBuz");
+            
+        }
+         else if (number%3 == 0) {
+            alert ("Fiz");
+        }
+         else if (number%5 == 0) {
+            alert ("Buz");
+        }
+    } 
+     else {
+        alert ("Давай серьезно, только целое число !");
+    }
+        
