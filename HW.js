@@ -64,28 +64,46 @@
 //         alert ("Давай серьезно, только целое число !");
 //     }
 
-//6-task
-    let yourAge = prompt("Ваш возраст: " + "\nтолько целые числа\n"); // перенос строки в promt
+// //6-task
+//     let yourAge = prompt("Ваш возраст: " + "\nтолько целые числа\n"); // перенос строки в promt
 
-    let numberAge = parseInt(yourAge);
+//     let numberAge = parseInt(yourAge);
 
-    if (!isNaN(numberAge) && yourAge.trim() !== "") {
+//     if (!isNaN(numberAge) && yourAge.trim() !== "") {
 
-        if (numberAge > 16 && numberAge <18) {
-            alert ("Можешь выкурить сигаретку, только маме не говори");
-        }
+//         if (numberAge > 16 && numberAge <18) {
+//             alert ("Можешь выкурить сигаретку, только маме не говори");
+//         }
         
-        else if (numberAge >= 18) {
-            alert ("Попей пивка");
-        }
+//         else if (numberAge >= 18) {
+//             alert ("Попей пивка");
+//         }
 
-        else if (numberAge < 18) {
-            alert ("Пей колу");
-        }
-    }
+//         else if (numberAge < 18) {
+//             alert ("Пей колу");
+//         }
+//     }
 
-    else {
-        alert ("Давай серьезно, только целое число !");
-     }
+//     else {
+//         alert ("Давай серьезно, только целое число !");
+//      }
 
-     
+//7-task
+let userCauntry = prompt("Куда бы вы хотели отправится ?\nВарианты:\n\nЮг\nСевер\nЗапад\nВосток\n ");
+
+switch (userCauntry) {
+    case "Юг":
+        alert ("на юг пойдешь счастье найдешь");
+    break;
+    case "Север":
+       alert ("на север пойдешь много денег найдешь");
+    break; 
+    case "Запад":
+        alert ("на запад пойдешь верного друга найдешь");
+    break;
+    case "Восток":
+        alert ("на восток пойдешь разработчиком станешь");
+    break;
+    default: 
+        alert ("туда не едут поезда и не идут посылки");
+}
