@@ -40,7 +40,7 @@ for (let i = 1; i <= 20; ++i) {
 
     console.log(shouldGoToWork);// Мы можем идти на работу :(
 
-    //5-task
+//5-task
     let yourNumber = prompt("введите Целое число: "); // просим ввести число
 
     let number = parseInt(yourNumber); //конвертируем значение в число для проверочек
@@ -63,4 +63,6 @@ for (let i = 1; i <= 20; ++i) {
      else {
         alert ("Давай серьезно, только целое число !");
     }
-        
+
+//6-task
+    
