@@ -108,17 +108,49 @@
 //         alert ("туда не едут поезда и не идут посылки");
 // }
 
-//LEVEL - UP
+// //LEVEL - UP
 
-let originalUser = "пОлИнА нАбЕрЕжНаЯ"; 
+// let originalUser = "пОлИнА нАбЕрЕжНаЯ"; 
 
-function capitalize(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); //функция которая изменяет строку таким образом что бы первая буква сттала заглавной, а остальные строчными
+// function capitalize(word) {
+//     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); //функция которая изменяет строку таким образом что бы первая буква сттала заглавной, а остальные строчными
+// }
+
+// let changedUser = originalUser.toLowerCase().split(" ").map(capitalize).join(" "); // 
+
+
+// // let veryChangedUser = changedUser.split(" "); 
+
+// alert(`Привет, ${changedUser}!`);
+
+//9-task
+
+// let userNumber = prompt("Введите число");
+
+// let userAction1 = prompt("Сколько отнять?");
+// let userAction2 = prompt("Сколько прибавить?");
+// let userAction3 = prompt("Сколько умножить?");
+// let userAction4 = prompt("Сколько разделить?");
+
+// // Преобразование строк в числа
+// userNumber = parseInt(userNumber);
+// let subtraction = parseInt(userAction1);
+// let addition = parseInt(userAction2);
+// let multiplication = parseInt(userAction3);
+// let division = parseInt(userAction4);
+
+
+// const result = ((userNumber - subtraction) + addition) * multiplication / division;
+// const formula = `((${userNumber} - ${subtraction}) + ${addition}) * ${multiplication} / ${division} = ${result}`;
+
+
+// alert(formula);
+
+//10-task
+
+let object = ""; 
+
+for (let i = 0; i < 6; i++) { 
+    object += "#"; 
+    console.log(object); 
 }
-
-let changedUser = originalUser.toLowerCase().split(" ").map(capitalize).join(" "); // 
-
-
-// let veryChangedUser = changedUser.split(" "); 
-
-alert(`Привет, ${changedUser}!`); 
