@@ -88,22 +88,37 @@
 //         alert ("Давай серьезно, только целое число !");
 //      }
 
-//7-task
-let userCauntry = prompt("Куда бы вы хотели отправится ?\nВарианты:\n\nЮг\nСевер\nЗапад\nВосток\n ");
+// //7-task
+// let userCauntry = prompt("Куда бы вы хотели отправится ?\nВарианты:\n\nЮг\nСевер\nЗапад\nВосток\n ");
 
-switch (userCauntry) {
-    case "Юг":
-        alert ("на юг пойдешь счастье найдешь");
-    break;
-    case "Север":
-       alert ("на север пойдешь много денег найдешь");
-    break; 
-    case "Запад":
-        alert ("на запад пойдешь верного друга найдешь");
-    break;
-    case "Восток":
-        alert ("на восток пойдешь разработчиком станешь");
-    break;
-    default: 
-        alert ("туда не едут поезда и не идут посылки");
+// switch (userCauntry) {
+//     case "Юг":
+//         alert ("на юг пойдешь счастье найдешь");
+//     break;
+//     case "Север":
+//        alert ("на север пойдешь много денег найдешь");
+//     break; 
+//     case "Запад":
+//         alert ("на запад пойдешь верного друга найдешь");
+//     break;
+//     case "Восток":
+//         alert ("на восток пойдешь разработчиком станешь");
+//     break;
+//     default: 
+//         alert ("туда не едут поезда и не идут посылки");
+// }
+
+//LEVEL - UP
+
+let originalUser = "пОлИнА нАбЕрЕжНаЯ"; 
+
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); //функция которая изменяет строку таким образом что бы первая буква сттала заглавной, а остальные строчными
 }
+
+let changedUser = originalUser.toLowerCase().split(" ").map(capitalize).join(" "); // 
+
+
+// let veryChangedUser = changedUser.split(" "); 
+
+alert(`Привет, ${changedUser}!`); 
