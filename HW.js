@@ -99,24 +99,47 @@
 // Вычислите среднюю зарплату сотрудников и результат поместите в
 // соответствующую переменную
 
-let salaries = {
-    andrey: 500,
-    sveta: 413,
-    anton: 987,
-    igor: 664,
-    alexandra: 199,
-    }
+// let salaries = {
+//     andrey: 500,
+//     sveta: 413,
+//     anton: 987,
+//     igor: 664,
+//     alexandra: 199,
+//     }
 
-    function middleCash (salaries) {
-        let sum = 0;
-        let count = Object.keys(salaries).length;
+//     function middleCash (salaries) {
+//         let sum = 0;
+//         let count = Object.keys(salaries).length;
         
-            for (let person in salaries) {
+//             for (let person in salaries) {
         
-                sum += salaries[person];    
-            }
+//                 sum += salaries[person];    
+//             }
             
-            return sum / count;
-    }    
+//             return sum / count;
+//     }    
 
-    console.log(middleCash(salaries)); 
+//     console.log(middleCash(salaries));
+
+
+// Задача 6.
+// Создать валидатор, запросить у пользователя логин и пароль для регистрации.
+// Затем данные записать в объект.
+// 5. Объекты6Потом попросить пользователя подтвердить данные. Если верно введен логин
+// и пароль, вывести сообщение Добро пожаловать 
+
+let userName = prompt("Введите логин: ");
+let userPass = prompt("Введите пароль: ");
+
+let userData = {
+    name: userName,
+    password: userPass
+}
+let userNameCheck = prompt("Введите логин: ");
+let userPasscheck = prompt("Введите пароль: ");
+
+if (userData.name === userNameCheck && userData.password === userPasscheck) {
+    alert("Добро пожаловать!")
+} else {
+    alert ("ERROR");
+}
