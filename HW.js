@@ -94,3 +94,29 @@
 //     }
 
 //     console.log(colors["ru pum pu ru rum"].red, colors["ru pum pu ru rum"].blue );
+
+// Дан объект:
+// Вычислите среднюю зарплату сотрудников и результат поместите в
+// соответствующую переменную
+
+let salaries = {
+    andrey: 500,
+    sveta: 413,
+    anton: 987,
+    igor: 664,
+    alexandra: 199,
+    }
+
+    function middleCash (salaries) {
+        let sum = 0;
+        let count = Object.keys(salaries).length;
+        
+            for (let person in salaries) {
+        
+                sum += salaries[person];    
+            }
+            
+            return sum / count;
+    }    
+
+    console.log(middleCash(salaries)); 
