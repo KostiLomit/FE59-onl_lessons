@@ -44,3 +44,29 @@
 //     return number >=0; 
 // })
 // console.log(PositiveArray);
+
+// Задача 4.
+// Используя метод reduce получите сумму всех чисел массива.
+// const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+
+// const sum = fibonacci.reduce((accumulator, value) => accumulator + value);
+// console.log(sum);
+
+// const sum = fibonacci.reduce(function(accumulator, value){
+//     return accumulator + value;
+// })
+// console.log(sum);
+
+// Задача 5.
+// Используя метод find найдите в массиве первое четное число.
+// Реализуйте решение двумя способами, используя function declaration & arrow
+// function.
+const numbers = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+
+// const evenNumber = numbers.find(number => number % 2 === 0);
+// console.log(evenNumber);
+
+const evenNumber = numbers.find(function(number){
+    return number % 2 === 0;
+})
+console.log(evenNumber);
