@@ -88,40 +88,53 @@
 // C - неплохой рейтинг и мы можем дать человеку кредит как 6 его зарплат
 // D - плохой рейтинг и мы не можем дать кредит 
 
-function Student(name, salary, rate) {
-    this.name = name;
-    this.salary = salary;
-    this.rate = rate;
+// function Student(name, salary, rate) {
+//     this.name = name;
+//     this.salary = salary;
+//     this.rate = rate;
     
-    this.checkRate = function(){
-        if(this.rate === "A") {
-            return this.salary * 12;
-        } else if(this.rate === "B") {
-            return this.salary * 9; 
-        }else if(this.rate === "C") {
-            return this.salary * 6;
-        } else {
-            return 0;
-        }
+//     this.checkRate = function(){
+//         if(this.rate === "A") {
+//             return this.salary * 12;
+//         } else if(this.rate === "B") {
+//             return this.salary * 9; 
+//         }else if(this.rate === "C") {
+//             return this.salary * 6;
+//         } else {
+//             return 0;
+//         }
             
-    };
+//     };
+// }
+// const students = [];
+
+// const studentVictoria = new Student("Victoria", 5000,"C");
+// const studentKirill = new Student("Kirill", 2000,"A");
+// const studentVlad = new Student("Vlad", 1000,"B");
+// const studentIza = new Student("Izabella", 6000,"D");
+// const studentKsyusha = new Student("Ksenia", 5000,"B");
+
+// students.push(studentVictoria, studentKirill, studentVlad, studentIza, studentKsyusha);
+
+
+// const CreditSum = students.reduce((total, Student) => total + Student.checkRate(), 0); // разобраться почему без "0" футкция возвращает [object]
+    
+
+// console.log("Total possible credits: " + CreditSum);
+    
+
+// Задача 2.
+// Тролли атакуют наш раздел с комментариями!!!
+// Единственный способ справиться с этой ситуацией - удалить все гласные из
+// комментариев троллей, нейтрализуя угрозу.
+// 7. Продвинутая работа с функциями8Ваша задача - написать функцию, которая принимает строку и возвращает
+// новую строку с удаленными гласными.
+// Например, строка «This website is for losers LOL!» станет «Ths wbst s fr lsrs LL!».
+
+function vowels (text){
+    return text.replace(/[aeiouAEIOU]/g, "");
 }
-const students = [];
+const input = "This website is for losers LOL!";
 
-const studentVictoria = new Student("Victoria", 5000,"C");
-const studentKirill = new Student("Kirill", 2000,"A");
-const studentVlad = new Student("Vlad", 1000,"B");
-const studentIza = new Student("Izabella", 6000,"D");
-const studentKsyusha = new Student("Ksenia", 5000,"B");
-
-students.push(studentVictoria, studentKirill, studentVlad, studentIza, studentKsyusha);
-
-
-const CreditSum = students.reduce((total, Student) => total + Student.checkRate(), 0); // разобраться почему без "0" футкция возвращает строку
-    
-
-console.log("Total possible credits: " + CreditSum);
-    
-
-
+console.log(vowels(input));
 
