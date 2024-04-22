@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../scss/main.css">
+    <title>Frutiger Todo list</title>
+</head>
+<body>
+    <section class="todo">
+        <h1 class="todo__title">Checklist Frutiger Aero by K.D.</h1>
+        <div class="todo__header">
+            <button id="delete-all" class="todo__button todo__button-delete-all">Delete ALL</button>
+            <button id="delete-last" class="todo__button todo__button-delete-last">Delete last</button>
+            <input type="text" id="todo-input" class="todo__input" placeholder="Enter todo">
+            <button id="add-todo" class="todo__button todo__button-add">Add</button>
+        </div>
+        <div class="todo_stats">
+            <span id="count-all" class="todo__count todo__count-all">Total: 0</span>
+            <span id="count-completed" class="todo__count todo__count-compl">Completed: 0</span>
+        </div>
+        <div class="todo__filters">
+            <button id="show-all" class="todo__button todo__button--show-all">Show All</button>
+            <button id="show-completed" class="todo__button todo__button--show-completed">Show Completed</button>
+            <input type="text" id="search-todo" class="todo__input todo__input--search" placeholder="Search...">
+        </div>
+    </section>
+    <script src="../public/index.js"></script>
+</body>
+</html>

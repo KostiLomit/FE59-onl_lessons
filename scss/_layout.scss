@@ -1,1 +1,15 @@
 /* CONTAINERS, GRID ONLY */
+
+.todo {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .todo__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
