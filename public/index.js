@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         return todoItem;
     }
+    
 });
 document.addEventListener('DOMContentLoaded', () => {
     const deleteAllButton = document.getElementById('delete-all');
@@ -117,19 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateStats() {
     const totalCount = document.querySelectorAll('.todo__item').length;
     const completedCount = document.querySelectorAll('.todo__item input[type="checkbox"]:checked').length;
-
+    
     document.getElementById('count-all').textContent = `Total: ${totalCount}`;
     document.getElementById('count-completed').textContent = `Completed: ${completedCount}`;
 }
 
-// Вызываем updateStats при изменении чекбоксов, добавлении и удалении задач
-document.addEventListener('DOMContentLoaded', () => {
-    const todoContainer = document.querySelector('.todo');
-    todoContainer.addEventListener('change', updateStats);
-    todoContainer.addEventListener('DOMNodeInserted', updateStats);
-    todoContainer.addEventListener('DOMNodeRemoved', updateStats);
+const observer = new MutationObserver(() => {
+    updateStats(); 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const todoContainer = document.querySelector('.todo');
+
+    observer.observe(todoContainer, {
+        childList: true, 
+        subtree: true, 
+    });
+
+    
+    todoContainer.addEventListener('change', updateStats);
+});
 function getCurrentDateTime() {
     const now = new Date();
     return now.toLocaleString(); // Например, "4/3/2023, 11:20:35 AM"
