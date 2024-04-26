@@ -54,9 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
         return todoItem;
     }
-    
-});
-document.addEventListener('DOMContentLoaded', () => {
+
+//удаления задач
     const deleteAllButton = document.getElementById('delete-all');
     const deleteLastButton = document.getElementById('delete-last');
 
@@ -71,10 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
             todos[todos.length - 1].remove();
         }
     });
-});
 
-/*Фильтрация задач*/
-document.addEventListener('DOMContentLoaded', () => {
+//фильтрация задач
     const showAllButton = document.getElementById('show-all');
     const showCompletedButton = document.getElementById('show-completed');
 
@@ -93,10 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-/*Поиск*/
-document.addEventListener('DOMContentLoaded', () => {
+//Поиск
     const searchInput = document.getElementById('search-todo');
 
     searchInput.addEventListener('input', () => {
@@ -112,22 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-/*Статистика*/
-function updateStats() {
-    const totalCount = document.querySelectorAll('.todo__item').length;
-    const completedCount = document.querySelectorAll('.todo__item input[type="checkbox"]:checked').length;
+    function updateStats() {
+        const totalCount = document.querySelectorAll('.todo__item').length;
+        const completedCount = document.querySelectorAll('.todo__item input[type="checkbox"]:checked').length;
+        
+        document.getElementById('count-all').textContent = `Total: ${totalCount}`;
+        document.getElementById('count-completed').textContent = `Completed: ${completedCount}`;
+    }
     
-    document.getElementById('count-all').textContent = `Total: ${totalCount}`;
-    document.getElementById('count-completed').textContent = `Completed: ${completedCount}`;
-}
+    const observer = new MutationObserver(() => {
+        updateStats(); 
+    });
 
-const observer = new MutationObserver(() => {
-    updateStats(); 
-});
-
-document.addEventListener('DOMContentLoaded', () => {
     const todoContainer = document.querySelector('.todo');
 
     observer.observe(todoContainer, {
@@ -135,10 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
         subtree: true, 
     });
 
-    
     todoContainer.addEventListener('change', updateStats);
+
+    function getCurrentDateTime() {
+        const now = new Date();
+        return now.toLocaleString(); // Например, "4/3/2023, 11:20:35 AM"
+    }
 });
-function getCurrentDateTime() {
-    const now = new Date();
-    return now.toLocaleString(); // Например, "4/3/2023, 11:20:35 AM"
-}
+
