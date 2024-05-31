@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" >
     <title>Document</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="timer">
+            <div class="timer-inputs">
+                <input type ="number" class="timer-input timer-input-min" placeholder="put-min" min="0" max="59"></input>
+                <input type ="number" class="timer-input timer-input-sec" placeholder="put-sec" min="0" max="59"></input>
+            </div>
+            <div class="timer-clock">
+                <p class="timer-min timer-p">00</p><span class="timer-min">min</span>
+                <p class="timer-sec timer-p"">00</p><span class="timer-sec">sec</span>
+            </div>
+            <div class="timer-buttons">
+                <button class="timer-button timer-start" onclick="startTimer">start</button>
+                <button class="timer-button timer-pause" onclick="stopTimer">pause</button>
+            </div> 
+        </div>
+    </header>
 </body>
 <script src="index.js"></script>
 </html>
