@@ -1,56 +1,111 @@
 "use strict";
+const postContainer = document.getElementById('post');
+let userText = 0;
+let userArray = [];
+userInput();
 
-let inputMin = document.querySelector('.timer-input-min');
-let inputSec = document.querySelector('.timer-input-sec');
-let timerClockMin = document.querySelector('.timer-min');
-let timerClockSec = document.querySelector('.timer-sec');
-const startBtn = document.querySelector('.timer-start');
-const stopBtn = document.querySelector('.timer-pause');
-
-let timerInterval;
-let totalSec = 0;
-    
-    inputMin.addEventListener('input', () => {
-        timerClockMin.textContent = String(inputMin.value).padStart(2,'0');
-    
-});
-    inputSec.addEventListener('input', () => {
-        timerClockSec.textContent = String(inputSec.value).padStart(2,'0');
-
-});
-
-
-function startTimer() {
-    let minutes = parseInt(inputMin.value) || 0;
-    let seconds = parseInt(inputSec.value) || 0;
-    totalSec = minutes * 60 + seconds;
-
-    timerInterval = setInterval(() => {
-        if (totalSec > 0) {
-            totalSec--;
-
-            let displayMinutes = Math.floor(totalSec / 60);
-            let displaySeconds = totalSec % 60;
-
-            timerClockMin.textContent = String(displayMinutes).padStart(2,'0');
-            timerClockSec.textContent = String(displaySeconds).padStart(2,'0');
-
+    function userInput() {
+        userText = window.prompt("What messages do you want to see (number)?", "3 7 15 23");
+        userArray = userText.split(' ').map(item => parseInt(item, 10))
+        
+        if (userText === 0) {
+            alert ('Try again')
+            userInput();
         } else {
-            clearInterval(timerInterval);
+            renderPost(userArray);
         }
-    }, 1000);
+    }
+
+    async function getPost(id) {
+        try {
+            const result = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+                if (!result.ok) {
+                    throw new Error(result.statusText);
+                }
+            const post = await result.json();
+            return post;
+        } catch (err) {
+            console.error('Error', err);
+            throw err;
+        }
+    }
+    
+    async function renderPost(array) {
+        
+        for ( const id of array) {
+            try {
+                const post = await getPost(id);
+                createPost([post]);
+        } catch (err) {
+            console.error(`Error load post with id - ${id}`, err);
+        }
+    }
 }
 
-function stopTimer() {
-
-    clearInterval(timerInterval)
+function createPost(data) {
+    const container = document.getElementById('posts-container'); 
+    data.forEach(post => {
+        const { userId, id, title, body } = post;
+        const postElement = `
+        <div class="post-item" data-product-id="${id}">
+            <div class="post-span">
+                <span class="userId">${userId}</span>
+                <span class="id">${id}</span>
+            </div>
+            <div class="meta">
+                <h3 class="meta-title">${title}</h3>
+                <p class="meta-body">${body}</p>
+            </div>
+        </div>
+        `;
+        postContainer.insertAdjacentHTML('beforeend', postElement);
+    });
 }
 
+//Promise chaining
 
-startBtn.addEventListener('click', () => {
-    startTimer();
-})
+// function getPost(id) {
+//     return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+//         .then(result => {
+//             if (!result.ok) {
+//                 throw new Error(result.statusText);
+//             }
+//             return result.json();
+//         })
+//         .catch(err => {
+//             console.error('Error', err);  
+//             throw err;
+//         });
+// }
 
-stopBtn.addEventListener('click', () => {
-    stopTimer();
-})
+// function renderPosts(array) {
+//     let promise = Promise.resolve();
+    
+//     array.forEach(id => {
+//         promise = promise
+//             .then(() => getPost(id))
+//             .then(post => {
+//                 const postElement = `
+//                     <div class="post-item" data-product-id="${post.id}">
+//                         <div class="post-span">
+//                             <span class="userId">${post.userId}</span>
+//                             <span class="id">${post.id}</span>
+//                         </div>
+//                         <div class="meta">
+//                             <h3 class="meta-title">${post.title}</h3>
+//                             <p class="meta-body">${post.body}</p>
+//                         </div>
+//                     </div>
+//                 `;
+//                 postContainer.insertAdjacentHTML('beforeend', postElement);
+//             })
+//             .catch(err => {
+//                 console.error(`Error loading post with id - ${id}`, err);
+//             });
+//     });
+    
+//     return promise;
+// }
+
+// const postIds = [15, 23, 7, 3];
+// renderPosts(postIds);
