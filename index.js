@@ -1,105 +1,58 @@
 "use strict";
-///homework///
-
-
-class Developer {
-    constructor(name) {
-        this.name = name;
-    }
-    startWork() {
-        return `${this.name} start work`
-    }
-    endWork() {
-        return `${this.name} end work`
-    }
-}
-
-class Frontend extends Developer {
-    constructor(name, websiteName) {
-        super(name);
-        this.websiteName = websiteName; 
-    }
-    
-    buildWebSite() {
-        return `${this.name} start build website ${this.websiteName}`
+const subjects = {
+    mathematics: {
+        students: 200,
+        teachers: 6
+    },
+    biology: {
+        students: 120, 
+        teachers: 2
+    },
+    chemistry: {
+        students: 100,
+        teachers: 3,
     }
 }
 
-class Backend extends Developer {
-    constructor(name) {
-        super(name); 
-    }
-    
-    buildServer() {
-        return `${this.name} start build server`
-    }
+///1///
+
+const subjectsString = Object.keys(subjects).join(', ');
+console.log(subjectsString);
+
+///2///
+
+let totalStudents = 0;
+let totalTeachers = 0;
+
+for (let subject in subjects) {
+    totalStudents += subjects[subject].students;
+    totalTeachers += subjects[subject].teachers;
 }
 
-const alice = new Frontend('Alice', 'Amazon');
-console.log(alice.startWork());
-console.log(alice.endWork());
-console.log(alice.buildWebSite());
+console.log(`Total students: ${totalStudents}, Total teachers: ${totalTeachers}`);
 
-const bob = new Backend('Bob');
-console.log(bob.startWork());
-console.log(bob.endWork());
-console.log(bob.buildServer());
+///3///
 
+const numberOfSubjects = Object.keys(subjects).length;
+const middleStudentNumber = totalStudents / numberOfSubjects;
+console.log(`Middle number of students in the subjects ${middleStudentNumber}`);
 
+///4///
 
-// class Car {
-//     constructor(make, model, year) {
-//         this.make = make;
-//         this.model = model;
-//         this.year = year;
-//     }
+const entries = (Object.entries(subjects));
+console.log(entries);
 
-//     describe(){
-//         return `this car is a ${this.year} ${this.make} ${this.model} `
-//     }
-// };
+const newArr = entries.map(([name, info]) => {
+    return {
+        subject: name,
+        students: info.students,
+        teachers: info.teachers
+    };
+});
 
-// class ElectricCar extends Car {
-//     constructor(make, model, year, batteryLife) {
-//         super(make, model, year);
-//         this.batteryLife = batteryLife;
-//     }
+console.log(newArr);
 
-//     batteryStatus() {
-//         return `Your battery is ${this.batteryLife}% charged.`;
-//     }
-// }
+///5///
 
-// const myCar = new Car ('VW', 'Golf', '1991');
-// console.log(myCar.desctibe());
-
-// const myElectricCar = new ElectricCar ('Tesla','Model X','2025','90');
-// console.log(myElectricCar.describe());
-// console.log(myElectricCar.batteryStatus());
-
-
-// class Animal {
-//     constructor(name, age) {
-//         this.name = name; 
-//         this.age = age;
-//     }
-
-//     describe() {
-//         return `Your animal is ${this.age} years old and its name is ${this.name}.`
-//     }
-
-// }
-
-// class Dog extends Animal {
-//     constructor (name, age, breed) {
-//         super(name, age)
-//         this.breed = breed; 
-//     }
-//     bark() {
-//         return "GAV GAV GAV"
-//     }
-// }
-
-// const valter = new Dog('Valter', '22', 'Taksa'); 
-// console.log(valter.describe());
-// console.log(valter.bark());
+newArr.sort((a,b) => b.teachers - a.teachers); 
+console.log(newArr);
