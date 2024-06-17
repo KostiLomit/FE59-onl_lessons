@@ -34,7 +34,7 @@ class App extends React.Component {
       <React.Fragment>
         <Burger isOpen={this.state.isOpen} switchBurger={this.switchBurger} />
         <Title isMouseOver={this.state.isMouseOver} switchText={this.switchText}/>
-        <Alert status={this.state.alertStatus('block')}/>
+        <Alert status={this.state.alertStatus}/>
 
       </React.Fragment>
     );
