@@ -1,0 +1,14 @@
+.burger {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+    &__wraper {
+        border: 5px, solid black;
+    }
+}
+
+.big-title {
+    font-size: 48px;
+}

@@ -1,0 +1,27 @@
+.alert__item {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+        &--warning {
+            border: 1px solid orange;
+            background-color: rgba(233, 158, 18, 0.2) ;
+        }
+        &--block {
+            border: 1px solid rgba(238, 60, 11, 0.514);
+            background-color: rgba(231, 19, 19, 0.2) ;
+        }
+        &--check {
+            border: 1px solid rgba(11, 238, 22, 0.514);
+            background-color: rgba(146, 231, 19, 0.2) ;
+        }
+        &--bell {
+            border: 1px solid rgba(11, 11, 238, 0.514);
+            background-color: rgba(19, 68, 231, 0.2) ;
+        }
+}
