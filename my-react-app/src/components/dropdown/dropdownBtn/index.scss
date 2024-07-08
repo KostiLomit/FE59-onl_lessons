@@ -1,0 +1,20 @@
+ 
+  .homework__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .homework__el {
+    border-bottom: 1px solid white;
+    width: 100%;
+    text-align: center; 
+    padding: 5px;
+  }
+  
+  .homework__el:hover {
+    cursor: pointer;
+    color: #ff6600;
+    transition: .3s;
+  }
+  

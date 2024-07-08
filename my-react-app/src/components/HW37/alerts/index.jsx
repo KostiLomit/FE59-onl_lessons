@@ -46,10 +46,13 @@ const alertSVG = (
     bell: 'alert__item--bell',
   };
 
-export const Alerts = ({ status }) => {
+export const Alerts = ({ status, setPage }) => {
     
     const currentSvg = svgmapping[status] || infoSVG;
     const currentClass = statusClass[status] || '';
+    const clickclack = (page) => {
+      setPage(page);
+    } 
 
     return (
         

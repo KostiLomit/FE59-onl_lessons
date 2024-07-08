@@ -1,12 +1,11 @@
 import { useState, useTransition } from 'react';
 import styles from './index.scss'
 
-export const Burger = ({isMenuOpen }) => {
+export const Burger = ({isMenuOpen}) => {
 
     const [isBurgerOpen, setIsBurgerOpen] = useState(isMenuOpen);
 
     const openBurger = () => {
-        
         setIsBurgerOpen(prevState => !prevState);
     }
 
